@@ -21,3 +21,4 @@ after_success:
   - docker push anmpout/multi-nginx
   - docker push anmpout/multi-server
   - docker push anmpout/multi-worker
+   #docker hub 
