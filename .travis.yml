@@ -15,10 +15,23 @@ after_success:
   - docker build -t anmpout/multi-server ./server
   - docker build -t anmpout/multi-worker ./worker
   #login docker cli
-  - echo "addmypassword" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "mL0du4FR!(*&" | docker login -u "$DOCKER_ID" --password-stdin
   #docker hub
   - docker push anmpout/multi-client
   - docker push anmpout/multi-nginx
   - docker push anmpout/multi-server
   - docker push anmpout/multi-worker
    #docker hub 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-187540400319" 
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
