@@ -15,7 +15,7 @@ after_success:
   - docker build -t anmpout/multi-server ./server
   - docker build -t anmpout/multi-worker ./worker
   #login docker cli
-  - echo "mL0du4FR!(*&" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "password" | docker login -u "$DOCKER_ID" --password-stdin
   #docker hub
   - docker push anmpout/multi-client
   - docker push anmpout/multi-nginx
